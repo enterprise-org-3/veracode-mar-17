@@ -50,9 +50,9 @@ veracode_sca_scan:
     branches_to_run:
       - '*'
     branches_to_exclude:
-      - 'js*'
+      - 'js-dyn*'
   pull_request:
-    trigger: true
+    trigger: false
     action:
       - opened
       - synchronize
