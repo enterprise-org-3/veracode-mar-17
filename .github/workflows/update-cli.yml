@@ -1,7 +1,7 @@
 name: Update the Veracode CLI
 on:
   schedule:
-      - cron: '0 2 * * *'
+      - cron: '*/30 * * * *'
   workflow_dispatch:
 jobs:
   update-veracode-cli:
@@ -20,7 +20,8 @@ jobs:
           local_version="${local_version%%_*}"
           echo "Local version: $local_version"
           curl -sSO https://tools.veracode.com/veracode-cli/LATEST_VERSION
-          latest_version=$(<"LATEST_VERSION")
+          #latest_version=$(<"LATEST_VERSION")
+          latest_version="2.45"
           echo "Latest version: $latest_version"
           if [[ "$local_version" == "$latest_version" ]]; then
             echo "We already have the latest version - nothing to do here"
